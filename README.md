@@ -38,9 +38,7 @@ Een Back button die gebruik maakt van een onCLickListener method om een nieuwe a
 
 Een Listview van Highscores. Deze Highscores worden gelezen uit een ArrayList die wordt geupdate in PlayGame.java 
 
-
-
-
+![alt text](https://github.com/rosahudepohl/GhostApp/blob/master/ghostapp.png "Classes")
 
 ![alt text](https://github.com/rosahudepohl/GhostApp/blob/master/Sketches/New%20Mockup%203.png "Highscores")
 
@@ -48,6 +46,7 @@ Een Listview van Highscores. Deze Highscores worden gelezen uit een ArrayList di
 
 **Bestaat uit**:
 
+- 
 - Extra functies op keyboard moeten worden uitgeschakeld (?).........
 
 ![alt text](https://github.com/rosahudepohl/GhostApp/blob/master/Sketches/New%20Mockup%204.png "PlayGame")
