@@ -25,10 +25,6 @@
             android:label="@string/title_activity_select_user" >
         </activity>
         <activity
-            android:name=".SelectLanguage"
-            android:label="@string/title_activity_select_language" >
-        </activity>
-        <activity
             android:name=".PlayGame"
             android:label="@string/title_activity_play_game" >
         </activity>

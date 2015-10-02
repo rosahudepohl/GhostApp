@@ -6,11 +6,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class PlayGame extends Activity {
+    String letter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_game);
+
+            Game.guess(letter);
+
+
     }
 
     @Override

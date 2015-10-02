@@ -18,7 +18,8 @@ public class SelectUser extends Activity {
         Button highscores = (Button) findViewById(R.id.button4);
         highscores.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PlayGame.class);
+                Intent intent = new Intent(SelectUser.this, PlayGame.class);
+                startActivity(intent);
             }
         });
     }
