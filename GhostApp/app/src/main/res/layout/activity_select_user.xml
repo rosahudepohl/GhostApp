@@ -19,10 +19,9 @@
         android:inputType="textPersonName"
         android:text="Player 1"
         android:ems="10"
-        android:id="@+id/editText"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp" />
+        android:id="@+id/player1"
+        android:layout_above="@+id/spinner"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -30,21 +29,41 @@
         android:inputType="textPersonName"
         android:text="Player 2"
         android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
-        android:layout_marginTop="15dp"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:id="@+id/player2"
+        android:layout_above="@+id/spinner2"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lets Play!"
         android:id="@+id/button4"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_marginTop="61dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="42dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_centerVertical="true"
+        android:text="Choose a player"
+        android:layout_alignLeft="@+id/player2"
+        android:layout_alignStart="@+id/player2"
+        android:layout_alignRight="@+id/player2"
+        android:layout_alignEnd="@+id/player2" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:text="Choose a player"
+        android:layout_above="@+id/button4"
+        android:layout_alignLeft="@+id/player2"
+        android:layout_alignStart="@+id/player2"
         android:layout_alignRight="@+id/textView"
         android:layout_alignEnd="@+id/textView" />
+
+
+    />
 </RelativeLayout>

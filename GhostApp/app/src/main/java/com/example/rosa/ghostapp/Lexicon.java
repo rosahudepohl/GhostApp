@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -27,22 +28,22 @@ import static android.system.Os.read;
  * Created by Rosa on 29-9-2015.
  */
 class Lexicon {
-    HashSet<String> filteredset = new HashSet<>();
     HashSet<String> wordset = new HashSet<>();
+    HashSet<String> filteredset;
 
     Lexicon(String filename, Context context){
 
         try {
             InputStream inputstream = context.getAssets().open(filename);
             Scanner in = new Scanner(inputstream);
-            Log.d("test","found file");
 
             while(in.hasNextLine()){
-                Log.d("test", "found line");
                 wordset.add(in.nextLine().trim().toLowerCase());
             }
 
-            Log.d("test", ""+wordset.size());
+            filteredset = new HashSet<String>(wordset);
+            Log.d("test", "filteredsetsize = "+ filteredset.size());
+
             in.close();
 
         } catch (IOException e) {
@@ -52,12 +53,14 @@ class Lexicon {
     }
 
     public HashSet<String> filter(String string) {
+        List words = new ArrayList();
 
-        for (String word : wordset){
-            if (word.startsWith(string))
-                filteredset.add(word);
+        for (String word : filteredset) {
+            if (!word.startsWith(string)) {
+                words.add(word);
+            }
         }
-
+        filteredset.removeAll(words);
         return filteredset;
     }
 

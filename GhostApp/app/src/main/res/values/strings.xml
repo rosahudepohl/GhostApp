@@ -7,4 +7,5 @@
     <string name="title_activity_select_user">SelectUser</string>
     <string name="title_activity_select_language">SelectLanguage</string>
     <string name="title_activity_play_game">PlayGame</string>
+    <string name="title_activity_game_ended">GameEnded</string>
 </resources>
