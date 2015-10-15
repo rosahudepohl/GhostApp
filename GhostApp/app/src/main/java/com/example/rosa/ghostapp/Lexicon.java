@@ -28,8 +28,7 @@ import static android.system.Os.read;
  * Created by Rosa on 29-9-2015.
  */
 class Lexicon {
-    HashSet<String> wordset = new HashSet<>();
-    HashSet<String> filteredset;
+    HashSet<String> wordset = new HashSet<>(), filteredset;
 
     Lexicon(String filename, Context context){
 

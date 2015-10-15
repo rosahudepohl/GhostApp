@@ -12,28 +12,25 @@ public class Game {
 
     Lexicon lexicon;
     static Boolean firstplayer;
-    Boolean ended;
-    Boolean validword;
+    Boolean ended, validword;
     String word;
-    static PlayGame playgame;
-    SharedPreferences sharedpreferences;
-    public static final String currentWord = "Word";
 
 
 
     public Game(Lexicon lexicon1){
+
         lexicon = lexicon1;
         firstplayer = true;
         ended = false;
         validword = true;
         word = "";
+
     }
 
     public void guess(String letter){
 
         word = word + letter;
         lexicon.filter(word);
-
 
         if (lexicon.count() == 0) {
             ended = true;
@@ -50,34 +47,52 @@ public class Game {
 
         else{
             switchPlayer();
-
         }
 
     }
 
+
+
     public boolean turn(){
+
        return firstplayer;
+
     }
+
+
 
     public boolean validword(){
+
         return validword;
+
     }
 
+
+
     public boolean ended(){
+
         return ended;
+
     }
+
+
 
     public static boolean winner(){
 
     return firstplayer;
+
     }
 
+
+
     public void switchPlayer(){
+
         if(firstplayer){
             firstplayer = false;
         }
         else{
             firstplayer = true;
         }
+
     }
 }

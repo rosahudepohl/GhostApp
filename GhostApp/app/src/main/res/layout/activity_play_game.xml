@@ -7,7 +7,7 @@
 
     <TextView android:text="........" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewField"
+        android:id="@+id/wordView"
         android:textSize="20dp"
         android:layout_marginTop="80dp"
         android:layout_centerHorizontal="true" />
@@ -26,8 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Player1test"
-        android:id="@+id/showPlayer1"
+        android:text=""
+        android:id="@+id/playerView1"
         android:layout_marginTop="100dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -36,8 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Player2test"
-        android:id="@+id/showPlayer2"
+        android:text=""
+        android:id="@+id/playerView2"
         android:layout_marginTop="100dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -67,6 +67,19 @@
         android:id="@+id/switchLanguageButton"
         android:layout_alignBottom="@+id/restartButton"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Lets Play"
+        android:id="@+id/playersTurn"
+        android:gravity="center"
+        android:layout_above="@+id/letterInputField"
+        android:layout_toRightOf="@+id/restartButton"
+        android:layout_toLeftOf="@+id/resignButton"
+        android:layout_toStartOf="@+id/resignButton"
+        android:layout_below="@+id/playerView1" />
 
 
 </RelativeLayout>
