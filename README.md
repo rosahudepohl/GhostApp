@@ -6,7 +6,7 @@
 
 #### MainActivity.java ####
 
-![alt text](https://github.com/rosahudepohl/GhostApp/blob/master/Sketches/New%20Mockup%201.png "MainActivity")
+![alt text](https://github.com/rosahudepohl/GhostApp/blob/master/Sketches/New%20Mockup%201.1.png "MainActivity")
 
 ##### NewGame.java #####
 
