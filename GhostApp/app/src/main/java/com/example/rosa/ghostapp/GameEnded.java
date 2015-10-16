@@ -5,21 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameEnded extends Activity {
     Game game;
     TextView displayWinner;
     String winner, word, player1Preferences, player2Preferences;
-    Boolean firstplayer, contains = false;
+    Boolean firstplayer;
     SharedPreferences playerPreferences, wordPreferences, highScoresPreferences;
 
 
@@ -38,8 +31,8 @@ public class GameEnded extends Activity {
     public String getWinner(){
 
         playerPreferences = getSharedPreferences("PlayerPreferences", Context.MODE_PRIVATE);
-        player1Preferences = playerPreferences.getString("Player1", player1Preferences);
-        player2Preferences = playerPreferences.getString("Player2", player2Preferences);
+        player1Preferences = playerPreferences.getString("Player1", "Player1");
+        player2Preferences = playerPreferences.getString("Player2", "Player2");
 
         firstplayer = game.winner();
 
@@ -71,14 +64,18 @@ public class GameEnded extends Activity {
         winner = getWinner();
 
         wordPreferences = getSharedPreferences("WordPreferences", Context.MODE_PRIVATE);
-        word = wordPreferences.getString("Word", word);
+        word = wordPreferences.getString("Word", "");
 
         highScoresPreferences = getSharedPreferences("Highscores", Context.MODE_PRIVATE);
 
-        if(!highScoresPreferences.contains(word)){
-            SharedPreferences.Editor editor = highScoresPreferences.edit();
-            editor.putString(word, winner);
-            editor.commit();
+        if(!word.equals("")){
+
+            if(!highScoresPreferences.contains(word)){
+                SharedPreferences.Editor editor = highScoresPreferences.edit();
+                editor.putString(word, winner);
+                editor.commit();
+            }
+
         }
 
     }

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -96,6 +95,7 @@ public class SelectUser extends Activity {
                 e.printStackTrace();
             }
         }
+
         if (!players.contains(player2Preferences)) {
             players.add(player2Preferences);
             try {
@@ -104,6 +104,7 @@ public class SelectUser extends Activity {
                 e.printStackTrace();
             }
         }
+
     }
 
 
@@ -117,6 +118,7 @@ public class SelectUser extends Activity {
         }
 
         return players;
+
     }
 
 
@@ -137,8 +139,8 @@ public class SelectUser extends Activity {
     private List readFromFile() throws FileNotFoundException {
 
         FileInputStream fileinput = this.openFileInput("players.txt");
-
         Scanner s = new Scanner(fileinput);
+
         while (s.hasNext()){
             players.add(s.next());
         }

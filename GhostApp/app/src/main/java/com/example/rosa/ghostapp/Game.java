@@ -1,10 +1,5 @@
 package com.example.rosa.ghostapp;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
-import android.widget.TextView;
-
 /**
  * Created by Rosa on 29-9-2015.
  */
@@ -59,13 +54,11 @@ public class Game {
     }
 
 
-
     public boolean turn(){
 
        return firstplayer;
 
     }
-
 
 
     public boolean validword(){
@@ -75,13 +68,11 @@ public class Game {
     }
 
 
-
     public boolean ended(){
 
         return ended;
 
     }
-
 
 
     public static boolean winner(){
@@ -91,15 +82,17 @@ public class Game {
     }
 
 
-
     public void switchPlayer(){
 
         if(firstplayer){
             firstplayer = false;
         }
+
         else{
             firstplayer = true;
         }
 
     }
+
+
 }

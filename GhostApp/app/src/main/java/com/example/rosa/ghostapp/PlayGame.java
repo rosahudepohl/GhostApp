@@ -5,15 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +28,7 @@ public class PlayGame extends Activity {
         playerPreferences = getSharedPreferences("PlayerPreferences", Context.MODE_PRIVATE);
         languagePreferences = getSharedPreferences("LanguagePreferences", Context.MODE_PRIVATE);
 
-        setPlayerView();
+        setPlayerViews();
         createGame();
         checkIfEnded();
 
@@ -105,12 +99,10 @@ public class PlayGame extends Activity {
         wordPreferences = getSharedPreferences("WordPreferences", Context.MODE_PRIVATE);
         playersTurnView = (TextView)findViewById(R.id.playersTurn);
 
-
         if (game.ended() == true) {
 
             if (game.validword()) {
                 SharedPreferences.Editor editor = wordPreferences.edit();
-                Log.d("test", "word added = "+ game.word);
                 editor.putString("Word", game.word);
                 editor.commit();
             }
@@ -122,6 +114,7 @@ public class PlayGame extends Activity {
         else{
             showPlayersTurn();
         }
+
     }
 
 
@@ -140,12 +133,12 @@ public class PlayGame extends Activity {
 
 
     // Set playerViews to current players from playerPreferences
-    public void setPlayerView(){
+    public void setPlayerViews(){
 
         showPlayer1 = (TextView)findViewById(R.id.playerView1);
         showPlayer2 = (TextView)findViewById(R.id.playerView2);
-        player1Preferences = playerPreferences.getString("Player1", player1Preferences);
-        player2Preferences = playerPreferences.getString("Player2", player2Preferences);
+        player1Preferences = playerPreferences.getString("Player1", "Player1");
+        player2Preferences = playerPreferences.getString("Player2", "Player2");
         showPlayer1.setText(player1Preferences);
         showPlayer2.setText(player2Preferences);
 
@@ -186,7 +179,6 @@ public class PlayGame extends Activity {
 
         SharedPreferences.Editor editor = languagePreferences.edit();
         editor.putString("Language", languagepreferences);
-
         editor.commit();
 
         Intent intent = new Intent(PlayGame.this, PlayGame.class);
