@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/listView"
         android:layout_below="@+id/textView1"
+        android:layout_marginTop="30dp"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignStart="@+id/textView1"
         android:layout_alignRight="@+id/textView1"

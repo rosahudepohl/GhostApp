@@ -29,8 +29,7 @@ import java.util.Objects;
 public class Highscores extends Activity {
     private HighscoresAdapter itemsAdapter;
     private ListView highscoresList;
-    SharedPreferences wordPreferences;
-    public static final String highScores = "Highscores";
+    SharedPreferences highScoresPreferences;
 
 
     @Override
@@ -38,11 +37,11 @@ public class Highscores extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
 
-        wordPreferences = getSharedPreferences(highScores, Context.MODE_PRIVATE);
+        highScoresPreferences = getSharedPreferences("Highscores", Context.MODE_PRIVATE);
 
-        Map<String, ?> highscores = wordPreferences.getAll();
+        Map<String, ?> highscores = highScoresPreferences.getAll();
 
-        Log.d("test", "highscoreslist = "+ highscores);
+        Log.d("test", "highscores = "+ highscores);
 
         highscoresList = (ListView) findViewById(R.id.listView);
 

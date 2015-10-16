@@ -30,6 +30,8 @@ import static android.system.Os.read;
 class Lexicon {
     HashSet<String> wordset = new HashSet<>(), filteredset;
 
+    // Add words from file to wordset and
+    // Make filteredset a copy of wordset
     Lexicon(String filename, Context context){
 
         try {
@@ -41,8 +43,6 @@ class Lexicon {
             }
 
             filteredset = new HashSet<String>(wordset);
-            Log.d("test", "filteredsetsize = "+ filteredset.size());
-
             in.close();
 
         } catch (IOException e) {
@@ -51,34 +51,33 @@ class Lexicon {
 
     }
 
-    public HashSet<String> filter(String string) {
+
+    // Remove words that do not start with the String letters from filteredset
+    public HashSet<String> filter(String letters) {
+
         List words = new ArrayList();
 
         for (String word : filteredset) {
-            if (!word.startsWith(string)) {
+            if (!word.startsWith(letters)) {
                 words.add(word);
             }
         }
+
         filteredset.removeAll(words);
         return filteredset;
+
     }
 
 
+    // Count number of words in filteredset
     public int count() {
+
         int wordcount;
         wordcount = filteredset.size();
         return wordcount;
+
     }
 
-    public String result() {
-        String remainingword = wordset.iterator().next();
-        return remainingword;
-    }
-
-    public HashSet<String> reset() {
-        filteredset.clear();
-        return filteredset;
-    }
 
 }
 

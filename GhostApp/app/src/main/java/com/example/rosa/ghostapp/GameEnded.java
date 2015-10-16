@@ -19,12 +19,8 @@ public class GameEnded extends Activity {
     Game game;
     TextView displayWinner;
     String winner, word, player1Preferences, player2Preferences;
-    Button PlayAgain, HighScores;
     Boolean firstplayer, contains = false;
-    SharedPreferences sharedpreferences, wordPreferences;
-    public static final String playerPreferences = "PlayerPreferences";
-    public static final String currentWord = "Word";
-    public static final String highScores = "Highscores";
+    SharedPreferences playerPreferences, wordPreferences, highScoresPreferences;
 
 
     @Override
@@ -35,40 +31,17 @@ public class GameEnded extends Activity {
         setWinnerText();
         newHighscore();
 
-        PlayAgain = (Button) findViewById(R.id.playAgainButton);
-        PlayAgain.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(GameEnded.this, PlayGame.class);
-                startActivity(intent);
-            }
-        });
-
-        HighScores = (Button) findViewById(R.id.highscoresButton);
-        HighScores.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(GameEnded.this, Highscores.class);
-                startActivity(intent);
-            }
-        });
     }
 
 
-
-    public void setWinnerText(){
-
-        displayWinner = (TextView)findViewById(R.id.winner);
-        firstplayer = game.winner();
-        displayWinner.setText("Congrats, "+ getWinner()+ ", you won!");
-
-    }
-
-
-
+    // Get winning player (this is the current player)
     public String getWinner(){
 
-        sharedpreferences = getSharedPreferences(playerPreferences, Context.MODE_PRIVATE);
-        player1Preferences = sharedpreferences.getString("Player1", player1Preferences);
-        player2Preferences = sharedpreferences.getString("Player2", player2Preferences);
+        playerPreferences = getSharedPreferences("PlayerPreferences", Context.MODE_PRIVATE);
+        player1Preferences = playerPreferences.getString("Player1", player1Preferences);
+        player2Preferences = playerPreferences.getString("Player2", player2Preferences);
+
+        firstplayer = game.winner();
 
         if (firstplayer){
             winner = player1Preferences;
@@ -83,21 +56,50 @@ public class GameEnded extends Activity {
     }
 
 
+    // Set winner TextView to output from getWinner() method
+    public void setWinnerText(){
 
+        displayWinner = (TextView)findViewById(R.id.winner);
+        displayWinner.setText("Congrats, " + getWinner() + ", you won!");
+
+    }
+
+
+    // Add new highscore to highScorePreferences
     public void newHighscore(){
 
         winner = getWinner();
 
-        sharedpreferences = getSharedPreferences(currentWord, Context.MODE_PRIVATE);
-        word = sharedpreferences.getString("Word", word);
+        wordPreferences = getSharedPreferences("WordPreferences", Context.MODE_PRIVATE);
+        word = wordPreferences.getString("Word", word);
 
-        wordPreferences = getSharedPreferences(highScores, Context.MODE_PRIVATE);
+        highScoresPreferences = getSharedPreferences("Highscores", Context.MODE_PRIVATE);
 
-        if(!wordPreferences.contains(word)){
-            SharedPreferences.Editor editor = wordPreferences.edit();
+        if(!highScoresPreferences.contains(word)){
+            SharedPreferences.Editor editor = highScoresPreferences.edit();
             editor.putString(word, winner);
             editor.commit();
         }
 
     }
+
+
+    // Open PlayGame Activity
+    public void playAgainListener (View v){
+
+        Intent intent = new Intent(GameEnded.this, PlayGame.class);
+        startActivity(intent);
+
+    }
+
+
+    // Open Highscores Activity
+    public void viewHighscoresListener(View v){
+
+        Intent intent = new Intent(GameEnded.this, Highscores.class);
+        startActivity(intent);
+
+    }
+
+
 }

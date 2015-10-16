@@ -5,7 +5,38 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-    <TextView android:text="........" android:layout_width="wrap_content"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restart"
+        android:onClick="restartListener"
+        android:id="@+id/restartButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resign"
+        android:onClick="resignListener"
+        android:id="@+id/resignButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch Language"
+        android:onClick="switchLanguageListener"
+        android:id="@+id/switchLanguageButton"
+        android:layout_alignBottom="@+id/restartButton"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="______________"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/wordView"
         android:textSize="20dp"
@@ -25,7 +56,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text=""
         android:id="@+id/playerView1"
         android:layout_marginTop="100dp"
@@ -35,43 +65,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text=""
         android:id="@+id/playerView2"
         android:layout_marginTop="100dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Restart"
-        android:id="@+id/restartButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Resign"
-        android:id="@+id/resignButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch Language"
-        android:id="@+id/switchLanguageButton"
-        android:layout_alignBottom="@+id/restartButton"
-        android:layout_centerHorizontal="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Lets Play"
         android:id="@+id/playersTurn"
         android:gravity="center"
